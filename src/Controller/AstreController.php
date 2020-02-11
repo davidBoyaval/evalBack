@@ -104,10 +104,16 @@ class AstreController extends AbstractController
         $content = $response->toArray();
         if($statusCode == 200){
             foreach($content["collection"]["items"] as $value){
-                $imagesTab[]=$value["links"][0]["href"];//recupération des liens
+                if (isset($value["links"])){
+                    $imagesTab[]=$value["links"][0]["href"];//recupération des liens
+                }else{
+                    dump($value);
+                    foreach ($value as $key => $val) {
+                        // $imagesTab[]=$key["links"][0]["href"];//recupération des liens
+                    }
+                }
             }
         }   
-        dump($imagesTab);
         return $this->render('astre/image.html.twig', [
             'astre' => $astre,
             'images' => $imagesTab,
