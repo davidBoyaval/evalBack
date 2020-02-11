@@ -36,6 +36,6 @@ console dans dossier du projet:
 
 - localhost:8000/astre/api_getAstre
 
-
-- Objectifs bonus visés
+# Bonus
+-Utilisation d'API externe
 
