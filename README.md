@@ -26,7 +26,7 @@ console dans dossier du projet:
 - php bin/console doctrine:database:create
 - php bin/console doctrine:migrations:migrate
 
-#Utilisation 
+#  Utilisation  
 
 -symfony server:start
 
