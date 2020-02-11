@@ -15,8 +15,9 @@
 
 # Installation
 
-- git clone :
+- git clone :https://github.com/davidBoyaval/evalBack.git
 - .env: ajouter les parametre de votre BDD
+
 customize this line!
 DATABASE_URL="mysql://db_user:db_password@127.0.0.1:3306/db_name"
 
