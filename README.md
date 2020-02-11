@@ -29,7 +29,8 @@ console dans dossier du projet:
 #Utilisation 
 
 -symfony server:start
--localhost:8000
+
+-localhost:8000 
 
 # Initialisation (script quelconque de remplissage de quelques données)
 
