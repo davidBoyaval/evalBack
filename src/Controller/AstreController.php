@@ -24,8 +24,18 @@ class AstreController extends AbstractController
     //affichage de tout les astres
     public function index(AstreRepository $astreRepository): Response
     {
+        $content = new ArrayCollection();
+        $url= 'https://api.nasa.gov/planetary/apod?api_key=eATCiSkREIRO5kjfvmdgzLkt2QGOuy2Lqt3kncpi';
+        $client = HttpClient::create(['http_version' => '2.0']);
+            $response = $client->request('GET', $url);
+            $statusCode = $response->getStatusCode();
+            $content = $response->toArray();
+            if($statusCode == 200){
+                dump($content);
+            }
         return $this->render('astre/index.html.twig', [
             'astres' => $astreRepository->findAll(),
+            'imgDuJour' => $content
         ]);
     }
      /**
@@ -58,6 +68,7 @@ class AstreController extends AbstractController
     //intérrogation de l'api pour recup par nom de l'astre
     public function ApiGetOneAstre(Request $request , AstreRepository $astreRepository){
          //interrogation API pour recuperer le infos
+        $content = new ArrayCollection();
         $name=$request->query->get("name");
         $url = 'https://api.le-systeme-solaire.net/rest/bodies/' . $name;
         $client = HttpClient::create(['http_version' => '2.0']);
