@@ -1,0 +1,44 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Astre index{% endblock %}
+
+{% block body %}
+    <h1>Astre index</h1>
+
+    <table class="table">
+        <thead>
+            <tr>
+                <th>Id</th>
+                <th>Name</th>
+                <th>Perihelion</th>
+                <th>Mass</th>
+                <th>Volume</th>
+                <th>DiscoveryDate</th>
+                <th>actions</th>
+            </tr>
+        </thead>
+        <tbody>
+        {% for astre in astres %}
+            <tr>
+                <td>{{ astre.id }}</td>
+                <td>{{ astre.name }}</td>
+                <td>{{ astre.perihelion }}</td>
+                <td>{{ astre.mass }}</td>
+                <td>{{ astre.volume }}</td>
+                <td>{{ astre.discoveryDate ? astre.discoveryDate|date('Y-m-d') : '' }}</td>
+                <td>
+                    <a href="{{ path('astre_detail', {'id': astre.id}) }}">Images</a>
+                    <a href="{{ path('astre_show', {'id': astre.id}) }}">show</a>
+                    <a href="{{ path('astre_edit', {'id': astre.id}) }}">edit</a>
+                </td>
+            </tr>
+        {% else %}
+            <tr>
+                <td colspan="7">no records found</td>
+            </tr>
+        {% endfor %}
+        </tbody>
+    </table>
+
+    <a href="{{ path('astre_new') }}">Create new</a>
+{% endblock %}

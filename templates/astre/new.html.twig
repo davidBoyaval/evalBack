@@ -1,0 +1,11 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}New Astre{% endblock %}
+
+{% block body %}
+    <h1>Créer un nouvel astre</h1>
+
+    {{ include('astre/_form.html.twig') }}
+
+    <a href="{{ path('astre_index') }}">Retour</a>
+{% endblock %}

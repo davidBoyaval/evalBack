@@ -1,0 +1,9 @@
+{{ form_start(form) }}
+    {{ form_widget(form) }}
+    <button class="btn">{{ button_label|default('Save') }}</button>
+{{ form_end(form) }}
+<h3>Ou interroger l'API :</h3>
+<form action="{{path ('api_getOneAstre')}}" method="get">
+    <input type="text" name="name" placeholder="saisissez un nom">
+    <button type="submit">rechercher</button>
+</form>

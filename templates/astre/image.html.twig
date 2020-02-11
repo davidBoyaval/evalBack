@@ -1,0 +1,13 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Astre{% endblock %}
+
+{% block body %}
+    <h1>{{ astre.name|capitalize }} vu par la NASA</h1>
+    <p>Vous pouvez retrouver sur cette page les images recensées par la NASA sur la recherche : "{{ astre.name|capitalize }}".</p>
+    {% for image in images %}
+        <img src="{{image}}" alt="{{ astre.name }} vu par la NASA">
+    {% endfor %}
+
+    <a href="{{ path('astre_index') }}">Retour à la liste</a>
+{% endblock %}
